@@ -1,4 +1,4 @@
-# encoding:utf-8
+# encoding: utf-8
 
 require 'rubygems'
 require 'bundler'
@@ -9,6 +9,7 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
+require 'cover_me'
 require 'test/unit'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
