@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "init.rb",
     "lib/rails_ip_validator.rb",
+    "rails_ip_validator.gemspec",
     "test/helper.rb",
     "test/test_rails_ip_validator.rb"
   ]
