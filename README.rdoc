@@ -1,9 +1,51 @@
 = rails_ip_validator
 
-Description goes here.
+== Installation
+Add the following line to your Gemfile
+  gem "rails_ip_validator"
+
+If you want to use it as plugin
+  rails plugin install git://github.com/traxanos/rails_ip_validator.git
+
+== Using
+Use to validate ip
+  validates :ip, :ip => true
+
+Use ip validation with forbidden ipv6
+  validates :ip, :ip => { :forbidden => :ipv6 }
+
+Use ip validation with forbidden ipv4
+  validates :ip, :ip => { :forbidden => :ipv4 }
+
+Use ip validation with forbidden netmask (10.20.30.40/24)
+  validates :ip, :ip => { :forbidden => :netmask }
+
+Use ip validation with forbidden ipv6 and private addresses
+  validates :ip, :ip => { :forbidden => [:priavte, :ipv6] }
+
+Use ip validation with additional custom validation
+  validates :ip, :ip => { :custom => Proc.new { |ip| ip.prefix == 24 } }
+
+== Features
+
+* validates ip
+* validates with forbiddens
+* ipv4 and ipv6 support
+* custom validation
+* tests for validator
+
+== Forbidden list
+
+* :a - Class A IP address
+* :b - Class B IP address
+* :c - Class C IP address
+* :netmask - 10.20.30.10/24
+* :private - Class A/B/C IP address
+* :ipv4 - 10.20.30.40
+* :ipv6 - ::ffff:192.168.0.1 or 2001:db8:0:cd30::
 
 == Contributing to rails_ip_validator
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
@@ -14,6 +56,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2011 Marco Scholl. See LICENSE.txt for
-further details.
-
+Copyright (c) 2010 Marco Scholl. See LICENSE.txt for further details.

@@ -15,6 +15,10 @@ class ValidateIpCustom < ValidateIp
   validates :ip, :ip => {:custom => Proc.new { |ip| ip.prefix == 24 }}
 end
 
+class ValidateIpForbiddenPrivate < ValidateIp
+  validates :ip, :ip => {:forbidden => :private}
+end
+
 class ValidateIpForbiddenA < ValidateIp
   validates :ip, :ip => {:forbidden => :a}
 end
@@ -139,6 +143,21 @@ class TestRailsIpValidator < Test::Unit::TestCase
   def test_forbidden_c
     instance = ValidateIpForbiddenC.new
     [
+        '192.168.0.1',
+        '::ffff:192.168.0.1'
+    ].each do |ip|
+      instance.ip = ip
+      assert !instance.valid?, ip.to_s
+    end
+  end
+
+  def test_forbidden_private
+    instance = ValidateIpForbiddenPrivate.new
+    [
+        '10.0.0.1',
+        '::ffff:10.0.0.1',
+        '172.16.0.1',
+        '::ffff:172.16.0.1',
         '192.168.0.1',
         '::ffff:192.168.0.1'
     ].each do |ip|

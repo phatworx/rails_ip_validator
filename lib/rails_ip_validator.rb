@@ -36,6 +36,7 @@ class IpValidator < ActiveModel::EachValidator
         valid = false if forbidden? :a and ip.a?
         valid = false if forbidden? :b and ip.b?
         valid = false if forbidden? :c and ip.c?
+        valid = false if forbidden? :private and ip.private?
         valid = false if forbidden? :ipv4 and ip.class == IPAddress::IPv4
         valid = false if forbidden? :ipv6 and (ip.class == IPAddress::IPv6 or ip.class == IPAddress::IPv6::Mapped)
         if options[:custom].is_a? Proc
