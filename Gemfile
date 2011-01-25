@@ -10,4 +10,5 @@ group :development do
   gem "jeweler", "~> 1.5.1"
   gem "ipaddress"
   gem "cover_me"
+  gem 'minitest'
 end

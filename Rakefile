@@ -27,6 +27,9 @@ Jeweler::Tasks.new do |gem|
 end
 Jeweler::RubygemsDotOrgTasks.new
 
+require 'cover_me'
+
+
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
@@ -36,7 +39,6 @@ end
 
 namespace :cover_me do
   task :report do
-    require 'cover_me'
     CoverMe.complete!
   end
 end

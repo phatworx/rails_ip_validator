@@ -9,12 +9,18 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
+
 require 'cover_me'
-require 'test/unit'
+require 'minitest/autorun'
+require 'minitest/mock'
+require 'minitest/benchmark'
+require 'minitest/spec'
+require 'minitest/pride'
+
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'rails_ip_validator'
 
-class Test::Unit::TestCase
+class MiniTest::Unit::TestCase
 end
