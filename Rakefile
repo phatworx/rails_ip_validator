@@ -13,7 +13,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "rails_ip_validator"
-  gem.homepage = "http://github.com/traxanos/rails_ip_validator"
+  gem.homepage = "http://github.com/phatworx/rails_ip_validator"
   gem.license = "MIT"
   gem.summary = %Q{an ip validator for rails}
   gem.description = %Q{a class to validate ip. it builded for rails}
@@ -21,40 +21,19 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ["Marco Scholl"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  gem.add_runtime_dependency 'activemodel', '>= 3.0.0'
-  gem.add_runtime_dependency 'ipaddress'
+  #gem.add_runtime_dependency 'activemodel', '>= 3.0.0'
+  #gem.add_runtime_dependency 'ipaddress'
   #  gem.add_development_dependency 'rspec', '> 1.2.3'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
-require 'cover_me'
-
-
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+require 'rspec/core'
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.pattern = FileList['spec/**/*_spec.rb']
 end
 
-namespace :cover_me do
-  task :report do
-    CoverMe.complete!
-  end
-end
+task :default => :spec
 
-task :test do
-  Rake::Task['cover_me:report'].invoke
-end
-
-task :default => :test
-
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "rails_ip_validator #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
+require 'yard'
+YARD::Rake::YardocTask.new

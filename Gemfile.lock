@@ -7,22 +7,27 @@ GEM
       i18n (~> 0.4)
     activesupport (3.0.3)
     builder (2.1.2)
-    configatron (2.6.4)
-      yamler (>= 0.1.0)
-    cover_me (1.0.0.rc5)
-      configatron
-      hashie
+    diff-lcs (1.1.2)
     git (1.2.5)
-    hashie (0.4.0)
     i18n (0.5.0)
     ipaddress (0.7.0)
     jeweler (1.5.2)
       bundler (~> 1.0.0)
       git (>= 1.2.5)
       rake
-    minitest (2.0.2)
     rake (0.8.7)
-    yamler (0.1.0)
+    rspec (2.3.0)
+      rspec-core (~> 2.3.0)
+      rspec-expectations (~> 2.3.0)
+      rspec-mocks (~> 2.3.0)
+    rspec-core (2.3.1)
+    rspec-expectations (2.3.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.3.0)
+    simplecov (0.4.0)
+      simplecov-html (~> 0.4.0)
+    simplecov-html (0.4.3)
+    yard (0.6.4)
 
 PLATFORMS
   ruby
@@ -30,7 +35,8 @@ PLATFORMS
 DEPENDENCIES
   activemodel (>= 3.0.0)
   bundler (~> 1.0.0)
-  cover_me
   ipaddress
-  jeweler (~> 1.5.1)
-  minitest
+  jeweler (~> 1.5.2)
+  rspec (~> 2.3.0)
+  simplecov (>= 0.3.8)
+  yard (~> 0.6.0)
