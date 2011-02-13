@@ -28,9 +28,7 @@ Gem::Specification.new do |s|
     "lib/rails_ip_validator.rb",
     "rails_ip_validator.gemspec",
     "spec/rails_ip_validator_spec.rb",
-    "spec/spec_helper.rb",
-    "test/helper.rb",
-    "test/test_rails_ip_validator.rb"
+    "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/phatworx/rails_ip_validator}
   s.licenses = ["MIT"]
@@ -39,9 +37,7 @@ Gem::Specification.new do |s|
   s.summary = %q{an ip validator for rails}
   s.test_files = [
     "spec/rails_ip_validator_spec.rb",
-    "spec/spec_helper.rb",
-    "test/helper.rb",
-    "test/test_rails_ip_validator.rb"
+    "spec/spec_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
