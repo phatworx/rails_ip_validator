@@ -7,7 +7,7 @@ Add the following line to your Gemfile
   gem "rails_ip_validator"
 
 If you want to use it as plugin
-  rails plugin install git://github.com/traxanos/rails_ip_validator.git
+  rails plugin install git://github.com/phatworx/rails_ip_validator.git
 
 == Using
 Use to validate ip
